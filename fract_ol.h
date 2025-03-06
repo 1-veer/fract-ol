@@ -6,7 +6,7 @@
 /*   By: ayoub-bg <ayoub-bg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 02:05:46 by ayoub-bg          #+#    #+#             */
-/*   Updated: 2025/03/05 02:13:25 by ayoub-bg         ###   ########.fr       */
+/*   Updated: 2025/03/06 00:55:29 by ayoub-bg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+#include "LIBFT/libft.h"
+
 
