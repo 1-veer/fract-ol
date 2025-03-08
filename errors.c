@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract_ol.c                                         :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 02:05:23 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/08 16:16:00 by abougati         ###   ########.fr       */
+/*   Created: 2025/03/08 13:15:24 by abougati          #+#    #+#             */
+/*   Updated: 2025/03/08 14:59:51 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Includes/fract_ol.h"
 
-int	main(int ac, char *av[])
+void    error_handling (t_fract *fract)
 {
-		t_fract fract;
-		
-	if ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10))
-		|| (ac == 4 && !ft_strncmp(av[1], "julia", 5)))
+	if (fract || fract->mlx_ptr || fract->mlx_window)
 	{
-		fract.name = av[1];
-		initialize_fract(&fract);
-		
-		//rendering (&fract);
-		
-		mlx_loop(fract.mlx_ptr);
+		mlx_destroy_window (fract->mlx_ptr, fract->mlx_window);
+		mlx_destroy_display (fract->mlx_ptr);	
+		free (fract->mlx_ptr);
 	}
-	else 
-	{
-		ft_putstr_fd(USAGE_MSG, 2);
-		exit(EXIT_FAILURE);
-	}
-	
+	perror ("MLX_ERROR");
+	exit (EXIT_FAILURE);
 }

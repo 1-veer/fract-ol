@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 NAME = fractol
 RM = rm -f
 LIBFT =	LIBFT/libft.a
@@ -11,7 +11,7 @@ LIB_SRCS = ./LIBFT/ft_atoi.c		./LIBFT/ft_isprint.c	./LIBFT/ft_strnstr.c 	./LIBFT
 			./LIBFT/ft_isascii.c	./LIBFT/ft_memmove.c	./LIBFT/ft_strchr.c		./LIBFT/ft_itoa.c		./LIBFT/ft_putnbr_fd.c	\
 			./LIBFT/ft_isdigit.c	./LIBFT/ft_memset.c		./LIBFT/ft_strtrim.c 	./LIBFT/ft_strmapi.c \
 
-SRCS = fract_ol.c
+SRCS = fract_ol.c errors.c initialize.c
 
 LIB_OBJS = $(LIB_SRCS:.c=.o)
 OBJS = $(SRCS:.c=.o)
@@ -20,7 +20,7 @@ C_MLX =  -Lminilibx-linux -lmlx_Linux -lX11 -lXext -lm
 
 all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(C_MLX) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(C_MLX) -o $(NAME) 
 
 $(LIBFT): $(LIB_OBJS)
 	ar rcs $(LIBFT) $(LIB_OBJS)

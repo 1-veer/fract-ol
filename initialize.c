@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   initialize.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/08 13:15:20 by abougati          #+#    #+#             */
+/*   Updated: 2025/03/08 16:22:01 by abougati         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Includes/fract_ol.h"
+
+void initialize_fract(t_fract *fract)
+{
+    	fract->mlx_ptr = mlx_init();
+		if (!fract->mlx_ptr)
+            error_handling(fract);
+		fract->mlx_window = mlx_new_window (fract->mlx_ptr, 1000, 1000, fract->name);
+        if (!fract->mlx_window)
+		    error_handling(fract);
+		fract->image.img_ptr = mlx_new_image(fract->mlx_ptr, 1000, 1000);
+		if (!fract->image.img_ptr)
+			error_handling(fract);
+		fract->image.addr = mlx_get_data_addr(fract->image.img_ptr, 
+						&fract->image.bits_per_pixel, &fract->image.size_line, &fract->image.endian);
+
+		
+		
+}
