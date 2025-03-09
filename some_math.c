@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 16:22:34 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/08 16:27:41 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/09 02:07:41 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_complex	complex_square(t_complex a)
 {
 	t_complex result;
 
-	result.re = a.re * a.re - a.im * a.im;
+	result.re = (a.re * a.re) - (a.im * a.im);
 	result.im = 2 * a.re * a.im;
 	return (result);
 }

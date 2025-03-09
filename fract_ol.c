@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 02:05:23 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/08 16:16:00 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/09 01:55:48 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char *av[])
 		fract.name = av[1];
 		initialize_fract(&fract);
 		
-		//rendering (&fract);
+		rendering (&fract);
 		
 		mlx_loop(fract.mlx_ptr);
 	}
