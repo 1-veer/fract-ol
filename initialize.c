@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 13:15:20 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/09 02:11:31 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/09 03:29:03 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@ void initial_values(t_fract *fract)
 	fract->hypotenuse = 4;
 	
 }
+
+// void handle_events(t_fract *fract)
+// {
+// 	mlx_hook(fract->mlx_window, 2, 1L << 0, key_press, fract);
+// 	mlx_hook(fract->mlx_window, 2, 1L << 0, key_press, fract);
+
+	
+// }
 
 void initialize_fract(t_fract *fract)
 {
@@ -33,4 +41,6 @@ void initialize_fract(t_fract *fract)
 			error_handling(fract);
 		fract->image.addr = mlx_get_data_addr(fract->image.img_ptr, 
 						&fract->image.bits_per_pixel, &fract->image.size_line, &fract->image.endian);
-}
+		//handle_events(fract);
+
+}		
