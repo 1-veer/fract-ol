@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 13:15:20 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/09 03:29:03 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/09 18:12:08 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,24 @@ void initial_values(t_fract *fract)
 {
 	fract->iterations = 42;
 	fract->hypotenuse = 4;
+	fract->shift_x = 0.0;
+	fract->shift_y = 0.0;
+	fract->zoom = 1;
 	
 }
 
-// void handle_events(t_fract *fract)
-// {
-// 	mlx_hook(fract->mlx_window, 2, 1L << 0, key_press, fract);
-// 	mlx_hook(fract->mlx_window, 2, 1L << 0, key_press, fract);
+void handle_events(t_fract *fract)
+{
+	//mlx_hook(mlx_win_list_t *win_ptr, int x_event, int x_mask, int (*f)(), void *param)
+
+	mlx_hook(fract->mlx_window, KeyPress, KeyPressMask, key_press, fract);
+	mlx_hook(fract->mlx_window, ButtonPress, ButtonPressMask, mouse_press, fract);
+	mlx_hook(fract->mlx_window, DestroyNotify , StructureNotifyMask, x_exit, fract);
+	
+	
 
 	
-// }
+}
 
 void initialize_fract(t_fract *fract)
 {
@@ -41,6 +49,6 @@ void initialize_fract(t_fract *fract)
 			error_handling(fract);
 		fract->image.addr = mlx_get_data_addr(fract->image.img_ptr, 
 						&fract->image.bits_per_pixel, &fract->image.size_line, &fract->image.endian);
-		//handle_events(fract);
+		handle_events(fract);
 
 }		

@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 15:00:55 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/09 02:20:38 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/09 17:11:36 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void   pixel_handler(int x, int y, t_fract *fract)
     z.re = 0.0;
     z.im = 0.0;
     
-    c.re = scale(x, -2, +2, 0, W);
-    c.im = scale(y, +2, -2, 0, H);
+    c.re = (scale(x, -2, +2, 0, W) * fract->zoom) + fract->shift_x;
+    c.im = (scale(y, +2, -2, 0, H) * fract->zoom) + fract->shift_y;
 
     while (index < fract->iterations)
     {

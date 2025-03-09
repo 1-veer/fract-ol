@@ -6,16 +6,16 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 02:05:46 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/09 02:22:45 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/09 18:12:33 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACT_OL_H
 # define FRACT_OL_H
-#endif
 
 #include "mlx.h"
 #include <X11/keysym.h>
+#include <X11/X.h>
 #include <math.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -70,9 +70,13 @@ typedef struct s_complex
 void    error_handling (t_fract *fract);
 void initialize_fract(t_fract *fract);
 void rendering (t_fract *fract);
-//int  escape_X( int key , t_fract *fract);
 double	scale(double unscaled_num, double wanted_min,
 				double wanted_max, double org_min, double org_max);
 t_complex	complex_add(t_complex a, t_complex b);
 t_complex	complex_square(t_complex a);
 
+int key_press (int  key, t_fract *fract);
+int x_exit (t_fract *fract);
+int mouse_press (int button, int x, int y, t_fract *fract);
+
+#endif
