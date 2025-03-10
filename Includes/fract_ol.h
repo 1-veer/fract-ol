@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 02:05:46 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/09 18:12:33 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/10 01:04:19 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,19 @@
 
 #include "../LIBFT/libft.h"
 
-#define USAGE_MSG "Usage: ./fractol mandelbrot\nUsage: ./fractol julia <Real_number> <Imaginiry_number>\n"
+#define USAGE_MSG " Welcome to ABOUGATI's Fract'ol! \n\n" \
+                  " You seemed to be testing it wrong.\n" \
+                  " Try out these commands instead :\n" \
+                  "  ./fractol mandelbrot\n" \
+                  "  ./fractol julia <Real_number> <Imaginary_number>\n\n" \
+                  " Examples to get you started with Julia fractals:\n" \
+                  "  ./fractol julia -0.7 0.27015\n" \
+                  "  ./fractol julia 0.355 0.355\n" \
+                  "  ./fractol julia -0.4 0.6\n" \
+                  "  /.fractol julia 0.285 0.01\n\n" \
 
-#define W 1000
-#define H 1000
+#define W 400
+#define H 400
 
 #define BLACK       0x000000  
 #define WHITE       0xFFFFFF  
@@ -51,11 +60,11 @@ typedef struct s_fract
     t_image image;
     double	hypotenuse;
 	int		iterations;
-	double	shift_x;
-	double	shift_y;
+	double	move_x;
+	double	move_y;
 	double	zoom;
-	double	julia_x;
-	double	julia_y;
+	double	julia_re;
+	double	julia_im;
     
 }                  t_fract;
 
@@ -74,9 +83,11 @@ double	scale(double unscaled_num, double wanted_min,
 				double wanted_max, double org_min, double org_max);
 t_complex	complex_add(t_complex a, t_complex b);
 t_complex	complex_square(t_complex a);
+double	adapt_inpt(char *str);
 
 int key_press (int  key, t_fract *fract);
 int x_exit (t_fract *fract);
 int mouse_press (int button, int x, int y, t_fract *fract);
+int motion(int x, int y, t_fract *fract);
 
 #endif

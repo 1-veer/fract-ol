@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 15:00:55 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/09 17:11:36 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/10 00:52:29 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ void pixel_put (int x, int y, t_image *image, int color)
     *(unsigned int *)(image->addr + n) = color;
 }
 
+void switching_farctal(t_fract *fract, t_complex *c, t_complex *z)
+{
+    if (!ft_strncmp(fract->name, "mandelbrot", 10))
+    {
+        c->re = z->re;
+        c->im = z->im;
+    }
+    else if (!ft_strncmp(fract->name, "julia", 5))
+    {
+        c->re = fract->julia_re;
+        c->im = fract->julia_im;
+    }
+}
+
 void   pixel_handler(int x, int y, t_fract *fract)
 {
     t_complex z;
@@ -28,24 +42,22 @@ void   pixel_handler(int x, int y, t_fract *fract)
     int my_color;
 
     index = 0;
-    z.re = 0.0;
-    z.im = 0.0;
+    z.re = (scale(x, -2, +2, 0, W) * fract->zoom) + fract->move_x;
+    z.im = (scale(y, +2, -2, 0, H) * fract->zoom) + fract->move_y;
     
-    c.re = (scale(x, -2, +2, 0, W) * fract->zoom) + fract->shift_x;
-    c.im = (scale(y, +2, -2, 0, H) * fract->zoom) + fract->shift_y;
-
+    switching_farctal(fract, &c , &z);
     while (index < fract->iterations)
     {
         z = complex_add(complex_square(z), c);    // z(1) = z(0)^2 + c
         if ((z.re * z.re) + (z.im * z.im) > fract->hypotenuse)
         {
-            my_color = scale (index, BLACK, WHITE, 0, fract->iterations);
-            pixel_put (x, y, &fract->image, my_color);
-            return ;
+            my_color = scale(index, 0x000000, 0xFF00FF, 0, fract->iterations); // Changed color scale to black to magenta
+            pixel_put(x, y, &fract->image, my_color);
+            return;
         }
         index++;        
     }
-    pixel_put (x, y, &fract->image, BLACK);
+    pixel_put(x, y, &fract->image, 0x000000); // Changed color to black
 }
 
  void rendering (t_fract *fract)

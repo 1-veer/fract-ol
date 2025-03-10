@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 16:22:34 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/09 02:07:41 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/10 00:37:52 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,31 @@ t_complex	complex_square(t_complex a)
 	result.re = (a.re * a.re) - (a.im * a.im);
 	result.im = 2 * a.re * a.im;
 	return (result);
+}
+double	adapt_inpt(char *str)
+{
+	int		a;
+	double	b;
+	int		sign;
+	double	x;
+
+	a = 0;
+	b = 0.0;
+	sign = 1;
+	x = 1.0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	while (*str == '-' || *str == '+')
+		if (*str++ == '-')
+			sign *= -1;
+	while (*str && *str != '.')
+		a = (a * 10) + (*str++ - '0');
+	if (*str == '.')
+		str++;
+	while (*str)
+	{
+		x /= 10;
+		b += (*str++ - '0') * x;
+	}
+	return ((a + b) * sign);
 }
