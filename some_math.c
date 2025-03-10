@@ -6,11 +6,11 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 16:22:34 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/10 00:37:52 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/10 03:44:05 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includes/fract_ol.h"
+#include "fract_ol.h"
 
 double	scale(double unscaled_num, double wanted_min,
 				double wanted_max, double org_min, double org_max)

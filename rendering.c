@@ -6,11 +6,11 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 15:00:55 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/10 00:52:29 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/10 04:18:40 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Includes/fract_ol.h"
+#include "fract_ol.h"
 
 void pixel_put (int x, int y, t_image *image, int color)
 {
@@ -51,13 +51,13 @@ void   pixel_handler(int x, int y, t_fract *fract)
         z = complex_add(complex_square(z), c);    // z(1) = z(0)^2 + c
         if ((z.re * z.re) + (z.im * z.im) > fract->hypotenuse)
         {
-            my_color = scale(index, 0x000000, 0xFF00FF, 0, fract->iterations); // Changed color scale to black to magenta
+            my_color = scale(index, fract->black, fract->white, 0, fract->iterations); 
             pixel_put(x, y, &fract->image, my_color);
             return;
         }
         index++;        
     }
-    pixel_put(x, y, &fract->image, 0x000000); // Changed color to black
+    pixel_put(x, y, &fract->image, fract->black); 
 }
 
  void rendering (t_fract *fract)
@@ -65,11 +65,11 @@ void   pixel_handler(int x, int y, t_fract *fract)
     int y;
     int x;
     
-    y = 0;
-    while (y++ < H)
+    y = -1;
+    while (++y < H)
         {
-            x = 0;
-            while (x++ < W)
+            x = -1;
+            while (++x < W)
                 pixel_handler(x, y, fract);
         }
     mlx_put_image_to_window(fract->mlx_ptr, fract->mlx_window, fract->image.img_ptr, 0, 0);    
