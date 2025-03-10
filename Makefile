@@ -1,28 +1,32 @@
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
-NAME = fractol
-RM = rm -f
+CC = cc CFLAGS = -Wall - Wextra - Werror - g NAME = fractol RM = rm -
+	f
 
-SRCS = fract_ol.c errors.c initialize.c rendering.c some_math.c events.c
+		SRCS = fract_ol.c errors.c initialize.c rendering.c some_math.c events.c
 
-OBJS = $(SRCS:.c=.o)
+																		OBJS = $(SRCS
+																				:.c =.o)
 
-C_MLX =  -Lminilibx-linux -lmlx_Linux -lX11 -lXext -lm 
+																		C_MLX =
+																			-Lminilibx
+																			- linux
+																			- lmlx_Linux
+																			- lX11
+																			- lXext
+																			-
+		lm
 
-all: $(NAME)
-$(NAME): $(OBJS) 
-	$(CC) $(CFLAGS) $(OBJS)  $(C_MLX) -o $(NAME) 
+			all : $(NAME) $(NAME)
+	: $(OBJS) $(CC) $(CFLAGS) $(OBJS) $(C_MLX) -
+		o $(NAME)
 
+			%.o : %.c $(CC) $(CFLAGS) -
+		c $ <
+	-o $ @
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+		clean : $(RM) $(OBJS)
 
-clean:
-	$(RM) $(OBJS) 
+					fclean : clean $(RM) $(NAME)
 
-fclean: clean 
-	$(RM) $(NAME)
+								re : fclean $(NAME)
 
-re: fclean $(NAME)
-
-.PHONY: clean fclean re all
+										.PHONY : clean fclean re all

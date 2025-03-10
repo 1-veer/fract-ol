@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ayoub-bg <ayoub-bg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 03:50:44 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/10 04:28:14 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/10 19:38:02 by ayoub-bg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ int	key_press(int key, t_fract *fract)
 		fract->iterations += 10;
 	else if (key == XK_BackSpace)
 		fract->iterations -= 10;
+	else if (key == XK_equal)
+		fract->zoom *= 1.1;
+	else if (key == XK_minus)
+		fract->zoom *= 0.9;
 	else if (key == XK_c)
 	{
 		fract->white -= 0xF00F00;

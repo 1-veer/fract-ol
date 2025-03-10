@@ -14,8 +14,8 @@
 # define FRACT_OL_H
 
 # include "minilibx-linux/mlx.h"
-# include <X11/keysym.h>
 # include <X11/X.h>
+# include <X11/keysym.h>
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -23,11 +23,11 @@
 # define W 600
 # define H 600
 
-# define BLACK 0x000000  
-# define WHITE 0xFFFFFF  
-# define RED 0xFF0000  
-# define GREEN 0x00FF00  
-# define BLUE 0x0000FF  
+# define BLACK 0x000000
+# define WHITE 0xFFFFFF
+# define RED 0xFF0000
+# define GREEN 0x00FF00
+# define BLUE 0x0000FF
 
 typedef struct s_image
 {
@@ -36,7 +36,7 @@ typedef struct s_image
 	int		bits_per_pixel;
 	int		size_line;
 	int		endian;
-}				t_image;
+}			t_image;
 
 typedef struct s_fract
 {
@@ -53,13 +53,13 @@ typedef struct s_fract
 	double	zoom;
 	double	julia_re;
 	double	julia_im;
-}				t_fract;
+}			t_fract;
 
 typedef struct s_complex
 {
 	double	re;
 	double	im;
-}				t_complex;
+}			t_complex;
 
 void		error_handling(t_fract *fract);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -68,9 +68,8 @@ void		write_msg(void);
 void		initialize_fract(t_fract *fract);
 void		rendering(t_fract *fract);
 
-double		scale(double unscaled_num, double wanted_min,
-				double wanted_max, double org_min,
-				double org_max);
+double		scale(double unscaled_num, double wanted_min, double wanted_max,
+				double org_min, double org_max);
 
 t_complex	complex_add(t_complex a, t_complex b);
 t_complex	complex_square(t_complex a);

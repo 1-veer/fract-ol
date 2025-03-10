@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ayoub-bg <ayoub-bg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 13:15:24 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/10 04:24:02 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/10 19:48:19 by ayoub-bg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,20 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-void write_msg(void)
+void	write_msg(void)
 {
-	ft_putstr_fd(" Welcome to ABOUGATI's Fract'ol! \n\n" \
-" You seemed to be testing it wrong.\n" \
-" Try out these commands instead :\n" \
-"  ./fractol mandelbrot\n" \
-"  ./fractol julia <Real_number> <Imaginary_number>\n\n" \
-" Examples to get you started with Julia fractals:\n" \
-" ""First try this number of iterations : 254""\n" \
-" ./fractol julia -0.70176 0.3842\n" \
-"  ./fractol julia 0.355 0.355\n" \
-"  ./fractol julia -0.8 0.156\n" \
-"  ./fractol julia 0.285 0.01\n\n", 2);
+	ft_putstr_fd(" Welcome to ABOUGATI's Fract'ol! \n\n"
+		" You seemed to be testing it wrong.\n"
+		" Try out these commands instead :\n"
+		"  ./fractol mandelbrot\n"
+		"  ./fractol julia <Real_number> <Imaginary_number>\n\n"
+		" Examples to get you started with Julia fractals:\n"
+		" First try this number of iterations : 254\n"
+		" ./fractol julia -0.70176 0.3842\n"
+		"  ./fractol julia 0.355 0.355\n"
+		"  ./fractol julia -0.8 0.156\n"
+		"  ./fractol julia 0.285 0.01\n\n",
+		2);
 }
 
 void	error_handling(t_fract *fract)
