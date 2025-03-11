@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 13:15:20 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/10 04:30:24 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/11 01:24:36 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	handle_events(t_fract *fract)
 		fract);
 	mlx_hook(fract->mlx_window, DestroyNotify, StructureNotifyMask, x_exit,
 		fract);
-	mlx_hook(fract->mlx_window, MotionNotify, PointerMotionMask, motion, fract);
 }
 
 void	initialize_fract(t_fract *fract)

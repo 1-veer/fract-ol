@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub-bg <ayoub-bg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 03:50:44 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/10 19:38:02 by ayoub-bg         ###   ########.fr       */
+/*   Updated: 2025/03/11 00:49:17 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	key_press(int key, t_fract *fract)
 		fract->zoom *= 0.9;
 	else if (key == XK_c)
 	{
-		fract->white -= 0xF00F00;
-		fract->black += 0xF00F00;
+		fract->white -= 0xFFFFFF;
+		fract->black += 0x000011;
 	}
 	rendering(fract);
 	return (0);
@@ -56,22 +56,9 @@ int	mouse_press(int button, int x, int y, t_fract *fract)
 	(void)x;
 	(void)y;
 	if (button == 4)
-		fract->zoom *= 0.9;
+		fract->zoom *= 0.8;
 	else if (button == 5)
-		fract->zoom *= 1.1;
+		fract->zoom *= 1.2;
 	rendering(fract);
-	return (0);
-}
-
-int	motion(int x, int y, t_fract *fract)
-{
-	if (!ft_strncmp(fract->name, "julia", 5))
-	{
-		fract->julia_re = (scale(x, -2, +2, 0, W) * fract->zoom)
-			+ fract->move_x;
-		fract->julia_im = (scale(y, +2, -2, 0, H) * fract->zoom)
-			+ fract->move_x;
-		rendering(fract);
-	}
 	return (0);
 }

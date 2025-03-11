@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rendering.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub-bg <ayoub-bg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 15:00:55 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/10 19:51:18 by ayoub-bg         ###   ########.fr       */
+/*   Updated: 2025/03/11 01:05:24 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,22 @@ void	pixel_handler(int x, int y, t_fract *fract)
 	int			my_color;
 
 	index = 0;
-	z.re = (scale(x, -2, +2, 0, W) * fract->zoom) + fract->move_x;
-	z.im = (scale(y, +2, -2, 0, H) * fract->zoom) + fract->move_y;
+	z.re = (scale(x, -2, +2, W) * fract->zoom) + fract->move_x;
+	z.im = (scale(y, +2, -2, H) * fract->zoom) + fract->move_y;
 	switching_fractal(fract, &c, &z);
 	while (index < fract->iterations)
 	{
 		z = complex_add(complex_square(z), c);
 		if ((z.re * z.re) + (z.im * z.im) > fract->hypotenuse)
 		{
-			my_color = scale(index, fract->black, fract->white, 0,
+			my_color = scale(index, fract->black, fract->white,
 					fract->iterations);
 			pixel_put(x, y, &fract->image, my_color);
 			return ;
 		}
 		index++;
 	}
-	pixel_put(x, y, &fract->image, fract->black);
+	pixel_put(x, y, &fract->image, BLACK);
 }
 
 void	rendering(t_fract *fract)
