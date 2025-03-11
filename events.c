@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 03:50:44 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/11 00:49:17 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/11 02:20:58 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,26 @@ int	key_press(int key, t_fract *fract)
 {
 	if (key == XK_Escape)
 		x_exit(fract);
-	else if (key == XK_w)
+	else if (key == XK_Up)
 		fract->move_y += (0.5 * fract->zoom);
-	else if (key == XK_s)
+	else if (key == XK_Down)
 		fract->move_y -= (0.5 * fract->zoom);
-	else if (key == XK_d)
+	else if (key == XK_Right)
 		fract->move_x += (0.5 * fract->zoom);
-	else if (key == XK_a)
+	else if (key == XK_Left)
 		fract->move_x -= (0.5 * fract->zoom);
 	else if (key == XK_space)
 		fract->iterations += 10;
 	else if (key == XK_BackSpace)
 		fract->iterations -= 10;
-	else if (key == XK_equal)
-		fract->zoom *= 1.1;
 	else if (key == XK_minus)
+		fract->zoom *= 1.1;
+	else if (key == XK_equal)
 		fract->zoom *= 0.9;
 	else if (key == XK_c)
 	{
 		fract->white -= 0xFFFFFF;
-		fract->black += 0x000011;
+		fract->black += 0xA020F0;
 	}
 	rendering(fract);
 	return (0);

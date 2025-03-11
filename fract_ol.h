@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 02:05:46 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/11 01:12:15 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/11 02:55:47 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@
 
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
-# define RED 0xFF0000
-# define GREEN 0x00FF00
-# define BLUE 0x0000FF
 
 typedef struct s_image
 {
@@ -48,6 +45,7 @@ typedef struct s_fract
 	int		iterations;
 	int		white;
 	int		black;
+	int		max_color;
 	double	move_x;
 	double	move_y;
 	double	zoom;

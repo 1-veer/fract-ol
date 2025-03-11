@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 15:00:55 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/11 01:05:24 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/11 02:55:11 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	pixel_handler(int x, int y, t_fract *fract)
 		if ((z.re * z.re) + (z.im * z.im) > fract->hypotenuse)
 		{
 			my_color = scale(index, fract->black, fract->white,
-					fract->iterations);
+					fract->max_color);
 			pixel_put(x, y, &fract->image, my_color);
 			return ;
 		}

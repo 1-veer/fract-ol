@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 13:15:20 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/11 01:35:50 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/11 02:50:10 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	initial_values(t_fract *fract)
 {
-	fract->black = 0x000000;
-	fract->white = 0x00FF00;
-	fract->iterations = 44;
+	fract->black = BLACK;
+	fract->white = WHITE;
+	fract->max_color = 10000;
+	fract->iterations = 50;
 	fract->hypotenuse = 4;
 	fract->move_x = 0.0;
 	fract->move_y = 0.0;

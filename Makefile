@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 NAME = fractol
 RM = rm -f
 
@@ -7,15 +7,15 @@ SRCS = fract_ol.c errors.c initialize.c rendering.c some_math.c events.c
 
 OBJS = $(SRCS:.c=.o)
 
-C_MLX =  -lmlx -lX11 -lXext -lm -O3
+MLX_FLAGS =  -lmlx -lX11 -lXext -lm -O3
 
 all: $(NAME)
 $(NAME): $(OBJS) 
-	$(CC) $(CFLAGS) $(OBJS)  $(C_MLX) -o $(NAME) 
+	$(CC) $(CFLAGS) $(OBJS) $(MLX_FLAGS) -o $(NAME) 
 
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 bonus: $(NAME)
 
