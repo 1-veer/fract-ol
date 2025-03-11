@@ -17,6 +17,8 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+bonus: $(NAME)
+
 clean:
 	$(RM) $(OBJS) 
 
