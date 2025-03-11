@@ -6,7 +6,7 @@
 /*   By: abougati <abougati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 03:50:44 by abougati          #+#    #+#             */
-/*   Updated: 2025/03/11 03:00:51 by abougati         ###   ########.fr       */
+/*   Updated: 2025/03/11 20:35:25 by abougati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 int	x_exit(t_fract *fract)
 {
-	mlx_destroy_image(fract->mlx_ptr, fract->image.img_ptr);
-	mlx_destroy_window(fract->mlx_ptr, fract->mlx_window);
-	mlx_destroy_display(fract->mlx_ptr);
-	free(fract->mlx_ptr);
+	if (fract && fract->mlx_ptr && fract->mlx_window)
+	{
+		mlx_destroy_image(fract->mlx_ptr, fract->image.img_ptr);
+		mlx_destroy_window(fract->mlx_ptr, fract->mlx_window);
+		mlx_destroy_display(fract->mlx_ptr);
+		free(fract->mlx_ptr);
+	}
 	exit(EXIT_SUCCESS);
 	return (0);
 }
