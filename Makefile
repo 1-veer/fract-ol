@@ -10,7 +10,8 @@ OBJS = $(SRCS:.c=.o)
 MLX_FLAGS =  -lmlx -lX11 -lXext -lm -O3
 
 all: $(NAME)
-$(NAME): $(OBJS) 
+
+$(NAME): $(OBJS) fract_ol.h
 	$(CC) $(CFLAGS) $(OBJS) $(MLX_FLAGS) -o $(NAME) 
 
 
@@ -18,6 +19,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 bonus: $(NAME)
+	@echo "The bonus part is implemented with the mandatory part"
 
 clean:
 	$(RM) $(OBJS) 
